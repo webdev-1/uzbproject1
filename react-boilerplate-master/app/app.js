@@ -32,6 +32,19 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
+
+//Import firebase functions.
+import firebase from 'firebase/app'
+import 'firebase/auth'
+// import 'firebase/firestore' // <- needed if using firestore
+// import 'firebase/functions' // <- needed if using httpsCallable
+import { createStore, combineReducers, compose } from 'redux'
+import { ReactReduxFirebaseProvider, firebaseReducer } from 'react-redux-firebase'
+// import { createFirestoreInstance, firestoreReducer } from 'redux-firestore' // <- needed if using firestore
+import firebaseConfig from './fbconfig';
+
+
+
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
 const openSansObserver = new FontFaceObserver('Open Sans', {});
@@ -46,14 +59,32 @@ const initialState = {};
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
+// 
+// react-redux-firebase config
+const rrfConfig = {
+  userProfile: 'users',
+  // useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
+  // enableClaims: true // Get custom claims along with the profile
+}
+
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+  // createFirestoreInstance // <- needed if using firestore
+}
+
+
 const render = messages => {
   ReactDOM.render(
     <Provider store={store}>
-      <LanguageProvider messages={messages}>
-        <ConnectedRouter history={history}>
-          <App />
-        </ConnectedRouter>
-      </LanguageProvider>
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <LanguageProvider messages={messages}>
+          <ConnectedRouter history={history}>
+            <App />
+          </ConnectedRouter>
+        </LanguageProvider>
+      </ReactReduxFirebaseProvider>
     </Provider>,
     MOUNT_NODE,
   );
