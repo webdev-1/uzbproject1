@@ -32,6 +32,8 @@ import { changeUsername } from './actions';
 import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import Firebase from '../../fbconfig';
+import { firestore } from '../../fbconfig';
 
 const key = 'home';
 
@@ -47,6 +49,7 @@ export function HomePage({
   useInjectSaga({ key, saga });
 
   useEffect(() => {
+
     // When initial state username is not null, submit the form to load repos
     if (username && username.trim().length > 0) onSubmitForm();
   }, []);
