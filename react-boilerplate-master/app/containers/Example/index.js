@@ -19,9 +19,13 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
+const key = "example";
+
 export function Example() {
-  useInjectReducer({ key: 'example', reducer });
-  useInjectSaga({ key: 'example', saga });
+  useInjectReducer({ key, reducer });
+  useInjectSaga({ key,  saga });
+
+  
 
   return (
     <div>

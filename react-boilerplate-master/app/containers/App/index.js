@@ -17,7 +17,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
-import Example from 'containers/Example/Loadable';
+import Example from '../Example/Loadable';
 
 import GlobalStyle from '../../global-styles';
 
@@ -44,6 +44,7 @@ export default function App() {
         <Route exact path="/" component={Example} />
         <Route path="/features" component={FeaturePage} />
         <Route path="" component={NotFoundPage} />
+        {/* <Route path="/example" component={Example} /> */}
       </Switch>
       <Footer />
       <GlobalStyle />

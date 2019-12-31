@@ -32,8 +32,6 @@ import { changeUsername } from './actions';
 import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import Firebase from '../../fbconfig';
-import { firestore } from '../../fbconfig';
 
 const key = 'home';
 

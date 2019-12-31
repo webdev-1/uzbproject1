@@ -15,11 +15,17 @@ const selectExampleDomain = state => state.example || initialState;
  * Default selector used by Example
  */
 
-const getUsername = () =>
+const getUsers = () =>
   createSelector(
     selectExampleDomain,
-    substate => substate.username,
+    substate => substate.users,
   );
 
-export default getUsername;
+const getLoadingState = () => 
+    createSelector(
+      selectExampleDomain,
+      substate => substate.loading,
+    );
+
+export default { getUsers, getLoadingState };
 export { selectExampleDomain };
