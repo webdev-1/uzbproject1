@@ -4,20 +4,20 @@
  *
  */
 import produce from 'immer';
-import { FETCH_SUCCESS} from './constants';
+import { FETCH_SUCCESS } from './constants';
 
 export const initialState = {
-  username: '',
+  users: [],
 };
 
 /* eslint-disable default-case, no-param-reassign */
-const exampleReducer = (state = initialState, action) =>
+export const fetchUsersReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case FETCH_SUCCESS:
-        draft.username = action.username;
+        draft.users = action.response;
         break;
     }
+    return draft;
   });
 
-export default exampleReducer;
