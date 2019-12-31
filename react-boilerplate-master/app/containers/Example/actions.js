@@ -6,9 +6,9 @@
 
 import { FETCH_SUCCESS } from './constants';
 
-export function defaultAction(username) {
+export const getUsers =(payload) => {
   return {
     type: FETCH_SUCCESS,
-    username, 
+    payload: response, 
   };
 }
