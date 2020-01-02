@@ -32,8 +32,7 @@ import { changeUsername } from './actions';
 import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import Firebase from '../../fbconfig';
-import { firestore } from '../../fbconfig';
+import Button from '@material/react-button';
 import Navbar from '../../components/Navbar';
 
 const key = 'home';
@@ -70,7 +69,14 @@ export function HomePage({
           content="A React.js Boilerplate application homepage"
         />
       </Helmet>
-      <Navbar />
+      <Button
+        raised
+        className='button-alternate'
+        onClick={() => console.log('clicked!')}
+      >
+        Click Me!
+      </Button>
+      {/* <Navbar /> */}
       {/* <div>
         <CenteredSection>
           <H2>
