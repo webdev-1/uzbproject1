@@ -34,6 +34,7 @@ import reducer from './reducer';
 import saga from './saga';
 import Firebase from '../../fbconfig';
 import { firestore } from '../../fbconfig';
+import Navbar from '../../components/Navbar';
 
 const key = 'home';
 
@@ -69,7 +70,8 @@ export function HomePage({
           content="A React.js Boilerplate application homepage"
         />
       </Helmet>
-      <div>
+      <Navbar />
+      {/* <div>
         <CenteredSection>
           <H2>
             <FormattedMessage {...messages.startProjectHeader} />
@@ -99,7 +101,7 @@ export function HomePage({
           </Form>
           <ReposList {...reposListProps} />
         </Section>
-      </div>
+      </div> */}
     </article>
   );
 }
