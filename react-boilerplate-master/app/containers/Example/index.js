@@ -15,51 +15,62 @@ import Button from '../../components/Button';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectExample from './selectors';
-import { getUsers } from './selectors';
+import { getUsers, makeSelectExample } from './selectors';
 import { getData } from './actions';
 import reducer from './reducer';
 import saga from './saga';
+import Button from '../../components/Button';
 import messages from './messages';
 
 export function Example({users}) {
   useInjectReducer({ key: 'example', reducer });
   useInjectSaga({ key: 'example', saga });
 
-  React.useEffect(()=> {
-    console.log(`the Users are ${users}`);
+  React.useEffect(() => {
+    console.log(`The users are: ${users}`);
     getData();
   }, []);
 
-  return (
-    <div>
-      <Helmet>
-        <title>Example</title>
-        <meta name="description" content="Description of Example" />
-      </Helmet>
+  // if (users.length === 0){
+  //   return (
+  //     <div>
+  //       <Helmet>
+  //         <title>Example</title>
+  //         <meta name="description" content="Description of Example" />
+  //       </Helmet>
+  //       <div>
+  //         This is coming from the Example component
+  //       </div>
+  //       {/* <Button Button /> */}
+  //     </div>
+  //   );
+  // }else {
+    return (
       <div>
-        This is coming from the Example component
+        <Helmet>
+          <title>Example</title>
+          <meta name="description" content="Description of Example" />
+        </Helmet>
+        <div>
+          Lol
+        </div>
       </div>
-      <Button>
-        Clickbait
-      </Button>
-
-    </div>
-  );
+    );
+  // }
 }
 
 Example.propTypes = {
   dispatch: PropTypes.func,
-  // user: PropTypes.array,
+  users: PropTypes.array,
+  // users: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
-  // example: makeSelectExample(),
   users: getUsers(),
 });
 
 function mapDispatchToProps(dispatch) {
-  return dispatch(getData());
+  return dispatch(getData()); 
 }
 
 const withConnect = connect(

@@ -21,5 +21,4 @@ const getUsers = () =>
     exampleState => exampleState.users,
   );
 
-
 export { selectExampleDomain, getUsers };

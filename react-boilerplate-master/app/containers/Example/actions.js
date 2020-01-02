@@ -12,7 +12,7 @@ import { FETCH_SUCCESS, FETCH_REQUEST } from './constants';
 export const getData = () => {
   return {
     type: FETCH_REQUEST,
-  }
+  };
 }
 
 /**
@@ -21,11 +21,10 @@ export const getData = () => {
  * @return {object}
  */
 export const putData = (response) => {
-  console.log(`Saga has passed this response ${response}`)
   return {
     type: FETCH_SUCCESS,
-    payload: response,
-  }
+    response,
+  };
 }
 
 

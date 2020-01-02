@@ -10,7 +10,6 @@ export const initialState = {
   users: [],
 };
 
-/* eslint-disable default-case, no-param-reassign */
 const exampleReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
