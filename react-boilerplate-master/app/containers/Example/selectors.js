@@ -18,8 +18,8 @@ const selectExampleDomain = state => state.example || initialState;
 const getUsers = () =>
   createSelector(
     selectExampleDomain,
-    substate => substate.users,
+    exampleState => exampleState.users,
   );
 
-export default getUsers;
-export { selectExampleDomain };
+
+export { selectExampleDomain, getUsers };

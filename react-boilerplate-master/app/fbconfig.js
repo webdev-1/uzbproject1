@@ -24,21 +24,21 @@
 //   export default firebase;
 //   export const analytics = firebase.analytics();
 //   export const auth = firebase.auth();
-//   export const firestore = firebase.firestore();
-//   export const storage = firebase.storage();
-//   export const performance = firebase.performance();
+// //   export const firestore = firebase.firestore();
+// //   export const storage = firebase.storage();
+// //   export const performance = firebase.performance();
 
 
-import firebase from 'firebase'
-import '@firebase/firestore' // 👈 If you're using firestore
-import ReduxSagaFirebase from 'redux-saga-firebase'
+// import firebase from 'firebase'
+// import '@firebase/firestore' // 👈 If you're using firestore
+// import ReduxSagaFirebase from 'redux-saga-firebase'
 
-const myFirebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyANZlFJrXhHqsPRgsHG_yE_yu9q8C6C67M",
-    authDomain: "uzbnetwork1.firebaseapp.com",
-    databaseURL: "https://uzbnetwork1.firebaseio.com",
-});
+// const myFirebaseApp = firebase.initializeApp({
+//     apiKey: "AIzaSyANZlFJrXhHqsPRgsHG_yE_yu9q8C6C67M",
+//     authDomain: "uzbnetwork1.firebaseapp.com",
+//     databaseURL: "https://uzbnetwork1.firebaseio.com",
+// });
 
-const Firebase = new ReduxSagaFirebase(myFirebaseApp);
+// const Firebase = new ReduxSagaFirebase(myFirebaseApp);
 
-export default Firebase;
+// export default Firebase;
